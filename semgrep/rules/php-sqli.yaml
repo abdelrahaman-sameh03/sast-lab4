@@ -1,0 +1,19 @@
+rules:
+  - id: mutillidae-php-sqli-unsafe-concat
+    languages: [php]
+    severity: HIGH
+    message: >
+      Possible SQL injection: mysql_query is called with an argument
+      that concatenates user input into the SQL string.
+    metadata:
+      category: security
+      technology: [php, mysql]
+      cwe: ["CWE-89: SQL Injection"]
+      owasp: ["A03:2021 - Injection"]
+    pattern-either:
+      - pattern: |
+          mysql_query("..." . $_GET["..."] . "...");
+      - pattern: |
+          mysql_query("..." . $_POST["..."] . "...");
+      - pattern: |
+          mysql_query("..." . $_REQUEST["..."] . "...");

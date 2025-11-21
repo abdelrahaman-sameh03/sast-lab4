@@ -1,0 +1,16 @@
+rules:
+  - id: mutillidae-php-xss-echo
+    languages: [php]
+    severity: HIGH
+    message: >
+      Possible reflected XSS: data from $_GET/$_POST/$_REQUEST is echoed
+      directly without HTML encoding.
+    metadata:
+      category: security
+      technology: [php]
+      cwe: ["CWE-79: Cross-site Scripting"]
+      owasp: ["A03:2021 - Injection/XSS"]
+    pattern-either:
+      - pattern: echo $_GET["..."];
+      - pattern: echo $_POST["..."];
+      - pattern: echo $_REQUEST["..."];
