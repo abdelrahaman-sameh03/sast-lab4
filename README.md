@@ -27,4 +27,8 @@ docker run --rm -v "${PWD}:/src" semgrep/semgrep semgrep --test /src/semgrep/rul
 ```bash
 docker run --rm -v "${PWD}:/src" semgrep/semgrep semgrep --config /src/semgrep/rules /src/mutillidae/src
 ```
+## Report
 
+You can download and view the full report here:
+
+[📄 SAST Lab 4 Report – Abdelrahman Sameh](SAST_Lab4_Report_AbdelrahmanSameh.pdf)
